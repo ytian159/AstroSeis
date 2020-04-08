@@ -1,0 +1,16 @@
+mesh_20km_2_layer0.mat   # mesh file name
+10000 50  0 # radius of solid-liquid boundary, nmesh (number of patch~4*nmesh), topography fold
+20000 200  0 # radius of surface, nmesh , topography fold
+my_mesh_lc.mat # name of the mesh generated from above parameters
+demo_out_put_lc.mat  #output file name
+6000 3000 3000 200 # outer layer: vp, vs, rho:density, Q:attenuation factor
+8000 0000 4000 200 # core: vp, vs, rho:density, Q:attenuation factor
+500 0.1 0.3  # nt:number of sampling points , dt:time interval, f0:center frequency
+moment  0 #type of source could be single or moment, scale of the source
+1 1 1 #  fx: x component force, fy: y component force, fz: z component force
+1 0 0 1 0 1 # Mxx,Mxy,Mxz,Myy,Myz,Mzz
+4e3 0 180 # source depth, latitude, longitude
+
+
+
+
