@@ -1,4 +1,4 @@
-phobos_model_20km.mat   # mesh file name
+face_phobos_model.mat   # mesh file name
 20000 200  1 # radius of reference sphere, nmesh (number of patch~4*nmesh), topography fold
 phobos_model_20km.mat # name of the mesh generated from above parameters
 uu_phobos_exp.mat  #output file name
