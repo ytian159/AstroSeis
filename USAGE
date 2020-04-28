@@ -12,12 +12,12 @@ in MATLAB.Visualization is also embedded in this code.
 The input file can be the same with  the computation part. 
 If the computation is finished, we can simply run 
 
-AstroSeis_plot    BEM_para 
+AstroSeis_plot    Phobos_topo_model 
 
 to do the plotting of the homogenous model. 
 For the liquid core model is similar: 
 
-AstroSeis_liquidcore_plot   BEM_para _lc
+AstroSeis_liquidcore_plot   inp_sft_lc
 
 There are three examples that is already finished in "exmaples" folder. 
 Usage is similar, you only need to change the input files. 
