@@ -126,13 +126,10 @@ ngd1=length(face);
 u1=uu.';
 %%
 for j=1:length(face)*3
-    %uu2(:,j)=uu(:,j).*wf(:);
     uu2(:,j)=u1(:,j).*wf(:);
 end
-%uut2_nl=real(fft(uu2_nl))*dw/(2*pi);
+
 uut2=real(fft(uu2))*dw/(2*pi);
-
-
 phiar=(1:ntr)/ntr*2*pi;
 nts=round(ts/dt);
 tplot=nt;
@@ -160,7 +157,6 @@ for i=1:ntr
     zr=rr*cos(thetar);
     vecr=[xr;yr;zr];
     normvecr=loc_grid*vecr/rr^2;
-
     [vdum,ind_rec]=max(normvecr);
     xr=xs0(ind_rec); yr=ys0(ind_rec); zr=zs0(ind_rec);
     %plot3(xr,yr,zr,'*');
