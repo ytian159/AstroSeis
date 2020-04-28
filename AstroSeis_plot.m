@@ -144,6 +144,9 @@ ub3=zeros(ntpp,ntr);
 loc_grid(:,1)=xs0;
 loc_grid(:,2)=ys0;
 loc_grid(:,3)=zs0;
+for i=1:ngd1
+    loc_grid(i,:)=loc_grid(i,:)/norm(loc_grid(i,:)); % normalized the receiver location vector
+end
 % figure
 % hold on;
 ta=t(1+nts:tplot)-ts;
