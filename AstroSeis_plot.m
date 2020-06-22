@@ -73,6 +73,7 @@ else
         tmpline = fgetl(tmpfid);
         tmp = textscan(tmpline,'%f %f %f','CommentStyle','#');
         fsrc=10^source_scale*[tmp{1},tmp{2},tmp{3}];
+        tmpline = fgetl(tmpfid);
     elseif strcmp(source_type,'moment')
         tmpline = fgetl(tmpfid);
         tmpline = fgetl(tmpfid);
