@@ -35,13 +35,18 @@ else
         tmpline = fgetl(tmpfid);
     else
         tmpline = fgetl(tmpfid);
-        tmp = textscan(tmpline,'%f %f %f','CommentStyle','#');
+        tmp = textscan(tmpline,'%f %f %f %s','CommentStyle','#');
         R=tmp{1};
         nmesh=tmp{2};
         nfold=tmp{3};
+        aster_name=tmp{4};
         fprintf('generating mesh \n');
         fprintf('R=%f, nmesh=%d \n',R,nmesh);
-        [face,numface,ds,xs0,ys0,zs0,thetas,phis,height,V,Tri]=gen_mesh_ph_topo(R,nmesh,nfold);
+        if strcmp(aster_name,'rand')
+            [face,numface,ds,xs0,ys0,zs0,thetas,phis,height,V,Tri]=gen_mesh_topo_rand(R,nmesh,nfold);
+        else
+            [face,numface,ds,xs0,ys0,zs0,thetas,phis,height,V,Tri]=gen_mesh_ph_topo(R,nmesh,nfold);
+        end
         tmpline = fgetl(tmpfid);
         tmp = textscan(tmpline,'%s','CommentStyle','#');
         out_mesh_name=tmp{1}{1};
