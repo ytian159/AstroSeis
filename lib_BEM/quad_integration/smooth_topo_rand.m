@@ -35,7 +35,7 @@ end
 nbasis = k;
 topos = 0;
 rng('default');
-rng(3);
+rng(4);
 maxh=20;
 coefrand=rand(nbasis,1);
 
