@@ -175,7 +175,7 @@ figure
 hold on
 nfold=9;
 wiggle(ta,(1:ntr)*5,uz(:,1:ntr).',1,'p',nfold);
-xlim([0 40])
+xlim([0 dt*nt])
 xlabel('time (s)');
 ylabel('longtitude (°)')
 title('Wiggle plot')
@@ -184,7 +184,7 @@ title('Wiggle plot')
 %%
 figure
 imagesc(ta,(1:ntr)*5,uz(:,1:ntr).')
-xlim([0 40]);
+xlim([0 dt*nt]);
 
 ylabel('longtitude (°)')
 colormap jet
