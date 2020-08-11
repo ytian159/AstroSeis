@@ -4,7 +4,7 @@ my_mesh.mat # name of the mesh generated from above parameters
 demo_out_put.mat  #output file name
 6000 3000 3000 200 # vp, vs, rho:density, Q:attenuation factor
 500 0.1 0.3  # nt:number of sampling points , dt:time interval, f0:center frequency
-moment  0 #type of source could be single or moment, scale of the source
+single  0 #type of source could be single or moment, scale of the source
 1 1 1 #  fx: x component force, fy: y component force, fz: z component force
 1 0 0 1 0 1 # Mxx,Mxy,Mxz,Myy,Myz,Mzz
 10e3 0 180 # source depth, latitude, longitude
