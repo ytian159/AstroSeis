@@ -2,7 +2,7 @@ function [face,numface,ds,xs0,ys0,zs0,thetas,phis,height,V,Tri]=gen_mesh_topo_ra
 
 [V,Tri]=ParticleSampleSphere('N',n);
 fv=struct('faces',Tri,'vertices',V); 
-fv_new=SubdivideSphericalMesh(fv,2);
+fv_new=SubdivideSphericalMesh(fv,1);
 V=fv_new.vertices;
 Tri=fv_new.faces;
 V=V*Rm;
@@ -13,12 +13,15 @@ V=V*Rm;
 % axis equal vis3d
 % view(3)
 %  break;
-%% load mars topo
-load ./marstopo;
 
+%%
+lat=linspace(180,0,200)-90;
+lon=linspace(0,360,400);
+[llon,llat]=meshgrid(lon,lat);
 %% smooth mars topo
 lmax = 6;
 llat = 90- llat; % colatitude 
+aa=zeros(size(llat),'like',llat);
 topos = smooth_topo_rand ( llon, llat, aa, lmax);
 %% get topo on patches 
 for j =1: length(V)
