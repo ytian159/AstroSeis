@@ -9,13 +9,14 @@ end
 set(0,'defaultaxesfontsize',14);
 set(0,'defaulttextfontsize',14);
 set(0,'defaultLineLineWidth',1);
+
 %% set up path
-pathAS=fileparts(mfilename('fullpath'));
-if contains(pathAS,'examples')
-    pathAS=extractBefore(path,'examples');
-end
-addpath(genpath(pathAS));
-%addpath('lib_BEM');
+% pathAS=fileparts(mfilename('fullpath'));
+% if contains(pathAS,'examples')
+%     pathAS=extractBefore(path,'examples');
+% end
+% addpath(genpath(pathAS));
+
 parafilefn = varargin{1};
 
 %% read in the parameter file 
@@ -46,6 +47,26 @@ else
         out_mesh_name=tmp{1}{1};
         save(out_mesh_name,'face','numface','ds','xs0','ys0','zs0','thetas','phis','height','V','Tri');
     end
+    %% plot mesh
+    for i=1:length(face)
+        Ra(i)=mean(face(i).ic);
+    end
+    R=mean(Ra);
+    nV=length(V);
+    for i=1:nV
+        hh(i)=norm(V(i,:));
+    end
+    figure; hold on;
+    h= patch('faces',Tri,'vertices',V, 'FaceVertexCData', hh(:), 'FaceColor','interp');
+    colormap (jet);
+    alpha(h,.6);
+    set(h,'EdgeColor',[152 57 153]/255,'linewidth',.01);
+    % set(h,'EdgeColor','b','FaceColor',[1 1 1 ]*.5)
+    axis equal vis3d
+    view(3)
+    colorbar;
+    pause(.1);
+    %%
     tmpline = fgetl(tmpfid);
     tmp = textscan(tmpline,'%s','CommentStyle','#');
     output_file_name=tmp{1}{1};
@@ -74,6 +95,7 @@ else
         tmpline = fgetl(tmpfid);
         tmp = textscan(tmpline,'%f %f %f','CommentStyle','#');
         fsrc=10^source_scale*[tmp{1},tmp{2},tmp{3}];
+        tmpline = fgetl(tmpfid);
     elseif strcmp(source_type,'moment')
         tmpline = fgetl(tmpfid);
         tmpline = fgetl(tmpfid);
@@ -95,10 +117,7 @@ else
 end
 
 %% other parameters
-for i=1:length(face)
-    Ra(i)=mean(face(i).ic);
-end
-R=mean(Ra);
+
 rs = R-h; 
 xs=rs*sin(thetas)*cos(phis);
 ys=rs*sin(thetas)*sin(phis);
