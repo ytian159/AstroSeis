@@ -1,7 +1,7 @@
-Dimorphos_model.mat   # mesh file name
+dimorphos_tri_face.mat   # mesh file name
 85 200  1 # radius of reference sphere, nmesh (number of patch~4*nmesh), topography fold
-phobos_model_20km.mat # name of the mesh generated from above parameters
-uu_phobos_exp.mat  #output file name
+dimorphos_tri_face_dum.mat # name of the mesh generated from above parameters
+uu_dimorphos.mat  #output file name
 300 50 400 50 # vp, vs, rho:density, Q:attenuation factor
 500 0.01 3.5  # nt:number of sampling points , dt:time interval, f0:center frequency
 moment  0 #type of source could be single or moment, scale of the source
