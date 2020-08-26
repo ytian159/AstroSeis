@@ -47,6 +47,26 @@ else
         out_mesh_name=tmp{1}{1};
         save(out_mesh_name,'face','numface','ds','xs0','ys0','zs0','thetas','phis','height','V','Tri');
     end
+    %% plot mesh
+    for i=1:length(face)
+        Ra(i)=mean(face(i).ic);
+    end
+    R=mean(Ra);
+    nV=length(V);
+    for i=1:nV
+        hh=norm(V(i,:));
+    end
+    figure; hold on;
+    h= patch('faces',Tri,'vertices',V, 'FaceVertexCData', hh(:), 'FaceColor','interp');
+    colormap (jet);
+    alpha(h,.6);
+    set(h,'EdgeColor',[152 57 153]/255,'linewidth',.01);
+    % set(h,'EdgeColor','b','FaceColor',[1 1 1 ]*.5)
+    axis equal vis3d
+    view(3)
+    colorbar;
+    pause(.1);
+    %%
     tmpline = fgetl(tmpfid);
     tmp = textscan(tmpline,'%s','CommentStyle','#');
     output_file_name=tmp{1}{1};
@@ -97,10 +117,7 @@ else
 end
 
 %% other parameters
-for i=1:length(face)
-    Ra(i)=mean(face(i).ic);
-end
-R=mean(Ra);
+
 rs = R-h; 
 xs=rs*sin(thetas)*cos(phis);
 ys=rs*sin(thetas)*sin(phis);
