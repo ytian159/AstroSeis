@@ -1,5 +1,5 @@
 function Mesh_generater(varargin)
-% program to compute seismic wavefield in homogenous elastic medium
+% program to generate mesh
 % Yuan Tian 03/15/2020 @University of Houston
 if numel(varargin)<1
     fprintf('AstroSeis need input parameter file !\n');
