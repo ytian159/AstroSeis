@@ -1,5 +1,5 @@
 function Mesh_generater_lc(varargin)
-% program to compute seismic wavefield in a solid body with a liquid core  
+% program to compute mesh for a model in a solid body with a liquid core  
 % Yuan Tian 03/17/2020 @University of Houston
 if numel(varargin)<1
     fprintf('AstroSeis_liquidcore need input parameter file !\n');
