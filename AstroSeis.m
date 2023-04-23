@@ -2,7 +2,7 @@ function AstroSeis(varargin)
 % program to compute seismic wavefield in homogenous elastic medium
 % Yuan Tian 03/15/2020 @University of Houston
 if numel(varargin)<1
-    fprintf('AstroSeis need input parameter file !\n');
+    fprintf('AstroSeis needs input parameter file !\n');
     return;
 end
 
