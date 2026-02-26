@@ -23,7 +23,7 @@ if ~exist(parafilefn,'file')
 else
     tmpfid = fopen(parafilefn,'r');
     
-    % input segyfile 
+    % input mesh file
     tmpline = fgetl(tmpfid);
     mesh_file_name =  textscan(tmpline,'%s','CommentStyle','#');
     mesh_file_name = char(mesh_file_name{1});
@@ -186,7 +186,7 @@ imagesc(ta,(1:ntr)*5,uz(:,1:ntr).');
 title('shifted core')
 
 xlabel('time (s)');
-ylabel('longtitude (°)')
+ylabel('longtitude (ï¿½)')
 colormap('jet');
 hc = colorbar;
 hc.Label.String = 'displacement (m)';

@@ -23,7 +23,7 @@ if ~exist(parafilefn,'file')
 else
     tmpfid = fopen(parafilefn,'r');
     
-    % input segyfile 
+    % input mesh file
     tmpline = fgetl(tmpfid);
     mesh_file_name =  textscan(tmpline,'%s','CommentStyle','#');
     mesh_file_name = char(mesh_file_name{1});
@@ -177,7 +177,7 @@ nfold=9;
 wiggle(ta,(1:ntr)*5,uz(:,1:ntr).',1,'p',nfold);
 xlim([0 dt*nt])
 xlabel('time (s)');
-ylabel('longtitude (°)')
+ylabel('longtitude (ï¿½)')
 title('Wiggle plot')
 
 %h1=plot(linspace(60,70,ndata),5*ones(ndata,1),'r-');
@@ -186,7 +186,7 @@ figure
 imagesc(ta,(1:ntr)*5,uz(:,1:ntr).')
 xlim([0 dt*nt]);
 
-ylabel('longtitude (°)')
+ylabel('longtitude (ï¿½)')
 colormap jet
 umax=max(abs(uz(:)));
 colorbar
