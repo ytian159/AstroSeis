@@ -87,7 +87,7 @@ else
     tmpline = fgetl(tmpfid);
     tmp = textscan(tmpline,'%f %f %f','CommentStyle','#');
     h=tmp{1};
-    thetas = 90-tmp{2}*pi/180;
+    thetas = (90-tmp{2})*pi/180;
     phis = tmp{3}*pi/180;
     
     fclose(tmpfid); 
