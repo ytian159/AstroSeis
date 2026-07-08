@@ -49,7 +49,7 @@ else
     end
     %% plot mesh
     for i=1:length(face)
-        Ra(i)=mean(face(i).ic);
+        Ra(i)=norm(face(i).ic);
     end
     R=mean(Ra);
     nV=length(V);

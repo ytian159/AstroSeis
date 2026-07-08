@@ -96,7 +96,7 @@ end
 
 %% other parameters
 for i=1:length(face)
-    Ra(i)=mean(face(i).ic);
+    Ra(i)=norm(face(i).ic);
 end
 R=mean(Ra);
 rs = R-h; 
