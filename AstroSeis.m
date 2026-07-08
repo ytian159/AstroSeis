@@ -54,7 +54,7 @@ else
     R=mean(Ra);
     nV=length(V);
     for i=1:nV
-        hh=norm(V(i,:));
+        hh(i)=norm(V(i,:));
     end
     figure; hold on;
     h= patch('faces',Tri,'vertices',V, 'FaceVertexCData', hh(:), 'FaceColor','interp');
